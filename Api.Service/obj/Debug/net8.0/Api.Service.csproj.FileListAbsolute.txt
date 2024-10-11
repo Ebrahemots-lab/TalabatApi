@@ -1,0 +1,15 @@
+D:\Vscode\Api.Service\bin\Debug\net8.0\Api.Service.deps.json
+D:\Vscode\Api.Service\bin\Debug\net8.0\Api.Service.dll
+D:\Vscode\Api.Service\bin\Debug\net8.0\Api.Service.pdb
+D:\Vscode\Api.Service\bin\Debug\net8.0\Api.Core.dll
+D:\Vscode\Api.Service\bin\Debug\net8.0\Api.Core.pdb
+D:\Vscode\Api.Service\obj\Debug\net8.0\Api.Service.csproj.AssemblyReference.cache
+D:\Vscode\Api.Service\obj\Debug\net8.0\Api.Service.GeneratedMSBuildEditorConfig.editorconfig
+D:\Vscode\Api.Service\obj\Debug\net8.0\Api.Service.AssemblyInfoInputs.cache
+D:\Vscode\Api.Service\obj\Debug\net8.0\Api.Service.AssemblyInfo.cs
+D:\Vscode\Api.Service\obj\Debug\net8.0\Api.Service.csproj.CoreCompileInputs.cache
+D:\Vscode\Api.Service\obj\Debug\net8.0\Api.Serv.73C609B4.Up2Date
+D:\Vscode\Api.Service\obj\Debug\net8.0\Api.Service.dll
+D:\Vscode\Api.Service\obj\Debug\net8.0\refint\Api.Service.dll
+D:\Vscode\Api.Service\obj\Debug\net8.0\Api.Service.pdb
+D:\Vscode\Api.Service\obj\Debug\net8.0\ref\Api.Service.dll

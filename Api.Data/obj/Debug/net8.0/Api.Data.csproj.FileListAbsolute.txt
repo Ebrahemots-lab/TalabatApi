@@ -1,0 +1,17 @@
+D:\Vscode\Api.Data\bin\Debug\net8.0\Api.data.deps.json
+D:\Vscode\Api.Data\bin\Debug\net8.0\Api.data.runtimeconfig.json
+D:\Vscode\Api.Data\bin\Debug\net8.0\Api.data.dll
+D:\Vscode\Api.Data\bin\Debug\net8.0\Api.data.pdb
+D:\Vscode\Api.Data\bin\Debug\net8.0\Api.Core.dll
+D:\Vscode\Api.Data\bin\Debug\net8.0\Api.Core.pdb
+D:\Vscode\Api.Data\obj\Debug\net8.0\Api.data.csproj.AssemblyReference.cache
+D:\Vscode\Api.Data\obj\Debug\net8.0\Api.data.GeneratedMSBuildEditorConfig.editorconfig
+D:\Vscode\Api.Data\obj\Debug\net8.0\Api.data.AssemblyInfoInputs.cache
+D:\Vscode\Api.Data\obj\Debug\net8.0\Api.data.AssemblyInfo.cs
+D:\Vscode\Api.Data\obj\Debug\net8.0\Api.data.csproj.CoreCompileInputs.cache
+D:\Vscode\Api.Data\obj\Debug\net8.0\Api.data.csproj.Up2Date
+D:\Vscode\Api.Data\obj\Debug\net8.0\Api.data.dll
+D:\Vscode\Api.Data\obj\Debug\net8.0\refint\Api.data.dll
+D:\Vscode\Api.Data\obj\Debug\net8.0\Api.data.pdb
+D:\Vscode\Api.Data\obj\Debug\net8.0\Api.data.genruntimeconfig.cache
+D:\Vscode\Api.Data\obj\Debug\net8.0\ref\Api.data.dll

@@ -1,0 +1,12 @@
+D:\Vscode\Api.Core\bin\Debug\net8.0\Api.Core.deps.json
+D:\Vscode\Api.Core\bin\Debug\net8.0\Api.Core.dll
+D:\Vscode\Api.Core\bin\Debug\net8.0\Api.Core.pdb
+D:\Vscode\Api.Core\obj\Debug\net8.0\Api.Core.csproj.AssemblyReference.cache
+D:\Vscode\Api.Core\obj\Debug\net8.0\Api.Core.GeneratedMSBuildEditorConfig.editorconfig
+D:\Vscode\Api.Core\obj\Debug\net8.0\Api.Core.AssemblyInfoInputs.cache
+D:\Vscode\Api.Core\obj\Debug\net8.0\Api.Core.AssemblyInfo.cs
+D:\Vscode\Api.Core\obj\Debug\net8.0\Api.Core.csproj.CoreCompileInputs.cache
+D:\Vscode\Api.Core\obj\Debug\net8.0\Api.Core.dll
+D:\Vscode\Api.Core\obj\Debug\net8.0\refint\Api.Core.dll
+D:\Vscode\Api.Core\obj\Debug\net8.0\Api.Core.pdb
+D:\Vscode\Api.Core\obj\Debug\net8.0\ref\Api.Core.dll
