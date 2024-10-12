@@ -1,6 +1,6 @@
 public interface IProductService
 {
-    Task<IEnumerable<ProductDTO>> GetAllProductsAsync(string sort, int? brandId, int? typeId);
+    Task<IEnumerable<ProductDTO>> GetAllProductsAsync(QueryParams param);
 
     Task<ProductDTO> GetProductByIdAsync(int id);
 

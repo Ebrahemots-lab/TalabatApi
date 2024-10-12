@@ -15,9 +15,9 @@ public class ProductController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<IEnumerable<ProductDTO>> GetAllProducts(string? sort, int? brandId, int? typeId)
+    public async Task<IEnumerable<ProductDTO>> GetAllProducts([FromQuery] QueryParams param)
     {
-        return await _service.GetAllProductsAsync(sort, brandId, typeId);
+        return await _service.GetAllProductsAsync(param);
     }
 
     [HttpGet("{id}")]

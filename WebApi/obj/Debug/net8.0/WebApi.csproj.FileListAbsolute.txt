@@ -177,3 +177,4 @@ D:\Vscode\WebApi\obj\Debug\net8.0\refint\WebApi.dll
 D:\Vscode\WebApi\obj\Debug\net8.0\WebApi.pdb
 D:\Vscode\WebApi\obj\Debug\net8.0\WebApi.genruntimeconfig.cache
 D:\Vscode\WebApi\obj\Debug\net8.0\ref\WebApi.dll
+D:\Vscode\WebApi\obj\Debug\net8.0\WebApi.sourcelink.json

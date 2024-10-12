@@ -3,14 +3,14 @@ using System.Linq.Expressions;
 public class ProductSpecifications : Specifications<Product>
 {
 
-    public ProductSpecifications(string type, int? brandIdParameter, int? typeId)
+    public ProductSpecifications(QueryParams param)
     : base(P =>
-        (!brandIdParameter.HasValue || P.BrandId == brandIdParameter)
+        (!param.BrandIdParam.HasValue || P.BrandId == param.BrandIdParam)
         &&
-        (typeId.HasValue || P.TypeId == typeId)
+        (!param.TypeIdParam.HasValue || P.TypeId == param.TypeIdParam)
      )
     {
-        switch (type)
+        switch (param.sort)
         {
             case "id":
                 OrderByAsc = P => P.Id;

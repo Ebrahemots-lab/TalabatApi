@@ -10,10 +10,10 @@ public class ProductService : IProductService
         _repo = repo;
         _mapper = mapper;
     }
-    public async Task<IEnumerable<ProductDTO>> GetAllProductsAsync(string sort, int? brandId, int? typeId)
+    public async Task<IEnumerable<ProductDTO>> GetAllProductsAsync(QueryParams param)
     {
         //get all products from repository
-        var specs = new ProductSpecifications(sort, brandId, typeId);
+        var specs = new ProductSpecifications(param);
         var products = await _repo.GetAllWithSpecs(specs);
         //convert from Produt to ProductDTO
         var mappedProducts = _mapper.Map<IEnumerable<Product>, IEnumerable<ProductDTO>>(products);

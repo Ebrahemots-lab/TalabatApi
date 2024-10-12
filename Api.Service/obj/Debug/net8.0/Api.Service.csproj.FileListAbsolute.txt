@@ -13,3 +13,4 @@ D:\Vscode\Api.Service\obj\Debug\net8.0\Api.Service.dll
 D:\Vscode\Api.Service\obj\Debug\net8.0\refint\Api.Service.dll
 D:\Vscode\Api.Service\obj\Debug\net8.0\Api.Service.pdb
 D:\Vscode\Api.Service\obj\Debug\net8.0\ref\Api.Service.dll
+D:\Vscode\Api.Service\obj\Debug\net8.0\Api.Service.sourcelink.json

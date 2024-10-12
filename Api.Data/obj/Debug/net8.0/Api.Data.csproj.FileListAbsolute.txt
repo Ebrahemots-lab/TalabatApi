@@ -15,3 +15,4 @@ D:\Vscode\Api.Data\obj\Debug\net8.0\refint\Api.data.dll
 D:\Vscode\Api.Data\obj\Debug\net8.0\Api.data.pdb
 D:\Vscode\Api.Data\obj\Debug\net8.0\Api.data.genruntimeconfig.cache
 D:\Vscode\Api.Data\obj\Debug\net8.0\ref\Api.data.dll
+D:\Vscode\Api.Data\obj\Debug\net8.0\Api.data.sourcelink.json
