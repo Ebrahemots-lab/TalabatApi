@@ -11,4 +11,8 @@ public interface ISepcifications<T>
     public Expression<Func<T, object>> OrderByAsc { get; set; }
 
     public Expression<Func<T, object>> OrderByDesc { get; set; }
+
+    public int Take { get; set; }
+
+    public int Skip { get; set; }
 }

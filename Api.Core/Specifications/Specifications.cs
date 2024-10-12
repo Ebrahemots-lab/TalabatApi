@@ -6,6 +6,8 @@ public class Specifications<T> : ISepcifications<T>
     public List<Expression<Func<T, object>>> Includes { get; set; } = new List<Expression<Func<T, object>>>();
     public Expression<Func<T, object>> OrderByAsc { get; set; } //Default
     public Expression<Func<T, object>> OrderByDesc { get; set; }  // Default
+    public int Take { get; set; }
+    public int Skip { get; set; }
 
     public Specifications()
     {

@@ -31,7 +31,16 @@ public class ProductSpecifications : Specifications<Product>
                 OrderByAsc = P => P.Id;
                 OrderByDesc = P => P.Id;
                 break;
+
         }
+        //total products = 50
+        //Pagesize = 10
+        //skip = 10 * 2 - 1 
+        //pageNumber = 2
+        int skipCalculator = param.PageSize * (param.PageNumber - 1);
+
+        ApplyPagenation(param.PageSize, skipCalculator);
+
     }
     public ProductSpecifications(Expression<Func<Product, bool>> criteria) : base(criteria)
     {
@@ -43,6 +52,14 @@ public class ProductSpecifications : Specifications<Product>
     {
         Includes.Add(P => P.Brand);
         Includes.Add(P => P.Type);
+    }
+
+
+    public void ApplyPagenation(int take, int skip)
+    {
+
+        Take = take;
+        Skip = skip;
     }
 
 

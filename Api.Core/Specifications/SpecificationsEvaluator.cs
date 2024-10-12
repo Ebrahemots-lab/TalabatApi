@@ -15,7 +15,6 @@ public static class SpecificationsEvaluator<TEntity> where TEntity : BaseEntity
             query = query.Where(specs.Criateria);
         }
 
-        query = specs.Includes.Aggregate(query, (oldQuery, NewQuery) => oldQuery.Include(NewQuery));
 
         if (specs.OrderByAsc is null)
         {
@@ -28,12 +27,11 @@ public static class SpecificationsEvaluator<TEntity> where TEntity : BaseEntity
                 return query.OrderByDescending(specs.OrderByDesc);
             }
         }
-        else
-        {
-            return query.OrderBy(specs.OrderByAsc);
 
-        }
+        query = specs.Includes.Aggregate(query, (oldQuery, NewQuery) => oldQuery.Include(NewQuery));
 
+
+        return query.Take(specs.Take).Skip(specs.Skip);
 
     }
 
