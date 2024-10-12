@@ -10,6 +10,7 @@ public static class SpecificationsEvaluator<TEntity> where TEntity : BaseEntity
 
     {
         var query = inputData;
+
         if (specs.Criateria is not null)
         {
             query = query.Where(specs.Criateria);
@@ -18,20 +19,27 @@ public static class SpecificationsEvaluator<TEntity> where TEntity : BaseEntity
 
         if (specs.OrderByAsc is null)
         {
-            if (specs.OrderByDesc is null)
+            if (specs.OrderByDesc is not null)
             {
-                return query;
+                query = query.OrderByDescending(specs.OrderByDesc);
             }
-            else
-            {
-                return query.OrderByDescending(specs.OrderByDesc);
-            }
+        }
+        else
+        {
+            query.OrderBy(specs.OrderByAsc);
         }
 
         query = specs.Includes.Aggregate(query, (oldQuery, NewQuery) => oldQuery.Include(NewQuery));
 
 
-        return query.Take(specs.Take).Skip(specs.Skip);
+
+        if (specs.EnablePagenation)
+        {
+            query = query.Skip(specs.Skip).Take(specs.Take);
+        }
+
+
+        return query;
 
     }
 

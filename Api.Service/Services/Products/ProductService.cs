@@ -1,3 +1,4 @@
+using Api.Core.Specifications;
 using AutoMapper;
 public class ProductService : IProductService
 {
@@ -10,14 +11,16 @@ public class ProductService : IProductService
         _repo = repo;
         _mapper = mapper;
     }
-    public async Task<IEnumerable<ProductDTO>> GetAllProductsAsync(QueryParams param)
+    public async Task<PagenationResponse<ProductDTO>> GetAllProductsAsync(QueryParams param)
     {
         //get all products from repository
         var specs = new ProductSpecifications(param);
         var products = await _repo.GetAllWithSpecs(specs);
         //convert from Produt to ProductDTO
+        var totalCountSpecification = new CountSpecifications(param);
+        var totalCount = await _repo.GetCountOfItems(totalCountSpecification);
         var mappedProducts = _mapper.Map<IEnumerable<Product>, IEnumerable<ProductDTO>>(products);
-        return mappedProducts;
+        return new PagenationResponse<ProductDTO>(param.PageSize, param.PageNumber, mappedProducts, totalCount);
     }
 
     public async Task<ProductDTO> GetProductByIdAsync(int id)

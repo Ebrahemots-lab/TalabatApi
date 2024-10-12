@@ -33,36 +33,41 @@ public class ProductSpecifications : Specifications<Product>
                 break;
 
         }
+
+
+        AddIncludes();
         //total products = 50
         //Pagesize = 10
         //skip = 10 * 2 - 1 
         //pageNumber = 2
         int skipCalculator = param.PageSize * (param.PageNumber - 1);
-
         ApplyPagenation(param.PageSize, skipCalculator);
 
     }
     public ProductSpecifications(Expression<Func<Product, bool>> criteria) : base(criteria)
     {
-        Includes.Add(P => P.Brand);
-        Includes.Add(P => P.Type);
+        AddIncludes();
     }
 
     public ProductSpecifications()
     {
-        Includes.Add(P => P.Brand);
-        Includes.Add(P => P.Type);
+        AddIncludes();
     }
 
 
     public void ApplyPagenation(int take, int skip)
     {
-
+        EnablePagenation = true;
         Take = take;
         Skip = skip;
     }
 
 
+    public void AddIncludes()
+    {
 
+        Includes.Add(P => P.Brand);
+        Includes.Add(P => P.Type);
+    }
 
 }

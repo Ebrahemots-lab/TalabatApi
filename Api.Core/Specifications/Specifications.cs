@@ -8,6 +8,7 @@ public class Specifications<T> : ISepcifications<T>
     public Expression<Func<T, object>> OrderByDesc { get; set; }  // Default
     public int Take { get; set; }
     public int Skip { get; set; }
+    public bool EnablePagenation { get; set; }
 
     public Specifications()
     {

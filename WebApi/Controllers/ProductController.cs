@@ -1,23 +1,16 @@
 using Microsoft.AspNetCore.Mvc;
+using WebApi.Controllers;
 
 
-[Route("api/[controller]")]
-[ApiController]
-public class ProductController : ControllerBase
+public class ProductController(IProductService service) : BaseApiController
 {
-    private readonly IProductService _service;
-    private readonly ApplicationContext context;
-
-    public ProductController(IProductService service, ApplicationContext context)
-    {
-        _service = service;
-        this.context = context;
-    }
+    private readonly IProductService _service = service;
 
     [HttpGet]
-    public async Task<IEnumerable<ProductDTO>> GetAllProducts([FromQuery] QueryParams param)
+    public async Task<PagenationResponse<ProductDTO>> GetAllProducts([FromQuery] QueryParams param)
     {
-        return await _service.GetAllProductsAsync(param);
+        var productsResponse = await _service.GetAllProductsAsync(param);
+        return productsResponse;
     }
 
     [HttpGet("{id}")]
@@ -33,12 +26,4 @@ public class ProductController : ControllerBase
         return NotFound(new ApiBaseError(404));
     }
 
-
-    [HttpGet("servererr")]
-    public ActionResult Servererr()
-    {
-
-        var product = context.Products.Find(100);
-        return Ok(product.ToString());
-    }
 }

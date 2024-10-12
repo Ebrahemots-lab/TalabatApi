@@ -1,7 +1,7 @@
 public class QueryParams
 {
     //string sort, int? brandId, int? typeId
-    public string sort { get; set; }
+    public string sort { get; set; } = "id";
 
     public int? BrandIdParam { get; set; }
 
@@ -15,6 +15,8 @@ public class QueryParams
     }
 
     public int PageNumber { get; set; } = 1;
+
+    public string? Brand { get; set; }
 
 
 

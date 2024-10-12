@@ -15,6 +15,11 @@ public class GenericRepository<T> : IGenericRepository<T> where T : BaseEntity
         return await ApplySpecifications(specs).ToListAsync();
     }
 
+    public async Task<int> GetCountOfItems(ISepcifications<T> specs)
+    {
+        return await ApplySpecifications(specs).CountAsync();
+    }
+
     public async Task<T> GetProductWithSepcs(ISepcifications<T> specs)
     {
         return await ApplySpecifications(specs).FirstOrDefaultAsync();
