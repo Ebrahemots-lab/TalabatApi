@@ -1,8 +1,11 @@
 
-public class ProductRepository : GenericRepository<Product> , IProductRepository
+
+
+public class ProductRepository : GenericRepository<Product>, IProductRepository
 {
-   public ProductRepository(ApplicationContext context) : base(context)
-   {
-    
-   }
+    public ProductRepository(ApplicationContext context) : base(context)
+    {
+
+    }
+
 }

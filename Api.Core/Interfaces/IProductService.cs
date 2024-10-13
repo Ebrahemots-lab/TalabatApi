@@ -4,4 +4,6 @@ public interface IProductService
 
     Task<ProductDTO> GetProductByIdAsync(int id);
 
+    Task<ProductDTO> GetProductByName(string name);
+
 }

@@ -30,4 +30,13 @@ public class ProductService : IProductService
         var mappedProduct = _mapper.Map<ProductDTO>(product);
         return mappedProduct;
     }
+
+    public async Task<ProductDTO> GetProductByName(string name)
+    {
+        var specs = new ProductSpecifications(P => P.Name == name);
+        var product = await _repo.GetProductWithSepcs(specs);
+        var mappedProduct = _mapper.Map<ProductDTO>(product);
+        return mappedProduct;
+
+    }
 }

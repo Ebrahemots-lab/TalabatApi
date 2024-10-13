@@ -49,6 +49,8 @@ public class ProductSpecifications : Specifications<Product>
         AddIncludes();
     }
 
+
+
     public ProductSpecifications()
     {
         AddIncludes();
@@ -69,5 +71,8 @@ public class ProductSpecifications : Specifications<Product>
         Includes.Add(P => P.Brand);
         Includes.Add(P => P.Type);
     }
+
+
+
 
 }

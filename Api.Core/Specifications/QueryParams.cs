@@ -18,6 +18,6 @@ public class QueryParams
 
     public string? Brand { get; set; }
 
-
+    public string? Search { get; set; }
 
 }

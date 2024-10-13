@@ -26,4 +26,5 @@ public class ProductController(IProductService service) : BaseApiController
         return NotFound(new ApiBaseError(404));
     }
 
+
 }

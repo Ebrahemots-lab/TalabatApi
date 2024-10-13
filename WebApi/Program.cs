@@ -1,5 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using StackExchange.Redis;
+using WebApi.Helpers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,14 +18,15 @@ builder.Services.AddDbContext<ApplicationContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("default"), p => p.MigrationsAssembly("Api.Data"));
 });
 
-builder.Services.AddAutoMapper(M => M.AddProfile(new MappingProfiles(builder.Configuration)));
-builder.Services.AddScoped<IProductService, ProductService>();
-builder.Services.AddScoped<IProductRepository, ProductRepository>();
+builder.Services.AddScoped<IConnectionMultiplexer>(options =>
+{
+    var connection = builder.Configuration.GetConnectionString("RedisUrl");
+    return ConnectionMultiplexer.Connect(connection);
+});
 
+builder.Services.AddAutoMapper(typeof(MappingProfiles));
 
-
-
-
+builder.Services.AddServices();
 //validate response 
 builder.Services.Configure<ApiBehaviorOptions>(options =>
 {
@@ -40,7 +43,6 @@ builder.Services.Configure<ApiBehaviorOptions>(options =>
         return new BadRequestObjectResult(validationErrorResponse);
     };
 }
-
 );
 
 
