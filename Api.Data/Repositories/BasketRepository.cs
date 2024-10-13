@@ -33,6 +33,8 @@ namespace Api.Data.Repositories
             var basketJson = JsonSerializer.Serialize(basket);
 
             //update the basket
+            //If founded => update
+            //Else => create 
             var flag = await _database.StringSetAsync(basket.Id, basketJson, TimeSpan.FromDays(1));
 
             if (flag)

@@ -4,6 +4,8 @@ using WebApi.Helpers;
 public class MappingProfiles : Profile
 {
 
+
+
     public MappingProfiles(IConfiguration config)
     {
         CreateMap<Product, ProductDTO>()

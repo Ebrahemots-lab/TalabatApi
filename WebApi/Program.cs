@@ -24,8 +24,7 @@ builder.Services.AddScoped<IConnectionMultiplexer>(options =>
     return ConnectionMultiplexer.Connect(connection);
 });
 
-builder.Services.AddAutoMapper(typeof(MappingProfiles));
-
+builder.Services.AddAutoMapper(M => M.AddProfile(new MappingProfiles(builder.Configuration)));
 builder.Services.AddServices();
 //validate response 
 builder.Services.Configure<ApiBehaviorOptions>(options =>
