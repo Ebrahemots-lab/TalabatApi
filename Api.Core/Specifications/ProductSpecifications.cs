@@ -5,6 +5,8 @@ public class ProductSpecifications : Specifications<Product>
 
     public ProductSpecifications(QueryParams param)
     : base(P =>
+        (param.Search == null || P.Name.Contains(param.Search))
+        &&
         (!param.BrandIdParam.HasValue || P.BrandId == param.BrandIdParam)
         &&
         (!param.TypeIdParam.HasValue || P.TypeId == param.TypeIdParam)
