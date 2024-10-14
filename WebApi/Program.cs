@@ -1,7 +1,6 @@
 using Api.Data.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using StackExchange.Redis;
 using WebApi.Helpers;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,25 +10,10 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 // dotnet ef migrations add IdentityMigrations -c IdentityContext -p ..\Api.Data\ -o Migrations\Identity
 
-//Add Conenction To Database 
-//AddDbcontext => Dependency Injection Extention
-builder.Services.AddDbContext<ApplicationContext>(options =>
-{
-    options.UseSqlServer(builder.Configuration.GetConnectionString("default"), p => p.MigrationsAssembly("Api.Data"));
-});
-builder.Services.AddDbContext<IdentityContext>(options =>
-{
-    options.UseSqlServer(builder.Configuration.GetConnectionString("IdentityDB"));
-});
-builder.Services.AddScoped<IConnectionMultiplexer>(options =>
-{
-    var connection = builder.Configuration.GetConnectionString("RedisUrl");
-    return ConnectionMultiplexer.Connect(connection);
-});
+builder.Services.DatabaseConnections(builder);
 
-builder.Services.AddAutoMapper(M => M.AddProfile(new MappingProfiles(builder.Configuration)));
-builder.Services.AddServices();
-//validate response 
+builder.Services.AddServices(builder);
+
 builder.Services.Configure<ApiBehaviorOptions>(options =>
 {
     options.InvalidModelStateResponseFactory = (actionContext) =>
@@ -52,14 +36,9 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
-var scope = app.Services.CreateScope();
-var scopeProvider = scope.ServiceProvider;
-var context = scopeProvider.GetRequiredService<ApplicationContext>();
-var identityContext = scopeProvider.GetRequiredService<IdentityContext>();
-var logger = scopeProvider.GetService<ILogger<ExceptionHandlingMiddlware>>();
-
-
-
+var context = ServicesExtention.GetService<ApplicationContext>(app);
+var logger = ServicesExtention.GetService<ILogger<ExceptionHandlingMiddlware>>(app);
+var identityContext = ServicesExtention.GetService<IdentityContext>(app);
 try
 {
     await context.Database.MigrateAsync();
