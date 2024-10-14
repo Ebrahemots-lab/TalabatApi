@@ -180,3 +180,4 @@ D:\Vscode\WebApi\obj\Debug\net8.0\ref\WebApi.dll
 D:\Vscode\WebApi\obj\Debug\net8.0\WebApi.sourcelink.json
 D:\Vscode\WebApi\bin\Debug\net8.0\Pipelines.Sockets.Unofficial.dll
 D:\Vscode\WebApi\bin\Debug\net8.0\StackExchange.Redis.dll
+D:\Vscode\WebApi\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
