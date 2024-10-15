@@ -8,22 +8,23 @@ public class ApiBaseError
     public ApiBaseError(int statusCode, string? message = null)
     {
         StatusCode = statusCode;
-        Message = message ?? GenerateMessageBasedOnCode(statusCode) ;
+        Message = message ?? GenerateMessageBasedOnCode(statusCode);
     }
 
- 
- private string GenerateMessageBasedOnCode(int statusCode)
- {
-    string message = statusCode switch 
-    {
-        400 => "Bad Request",
-        404 => "Not Found",
-        500 => "Server Error",
-        _ => null
-    };
-   
-   return message;
- }
 
-    
+    private string GenerateMessageBasedOnCode(int statusCode)
+    {
+        string message = statusCode switch
+        {
+            400 => "Bad Request",
+            404 => "Not Found",
+            500 => "Server Error",
+            401 => "Not Authorized",
+            _ => null
+        };
+
+        return message;
+    }
+
+
 }
