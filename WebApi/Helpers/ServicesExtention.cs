@@ -11,6 +11,7 @@ namespace WebApi.Helpers
     {
         public static void AddServices(this IServiceCollection service, WebApplicationBuilder builder)
         {
+
             service.AddScoped<IBasketRepository, BasketRepository>();
             service.AddScoped<IProductService, ProductService>();
             service.AddScoped<IProductRepository, ProductRepository>();

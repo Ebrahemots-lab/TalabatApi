@@ -1,4 +1,7 @@
+using Api.Core.Entites.Identity;
+using Api.Data;
 using Api.Data.Identity;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using WebApi.Helpers;
@@ -13,6 +16,15 @@ builder.Services.AddControllers();
 builder.Services.DatabaseConnections(builder);
 
 builder.Services.AddServices(builder);
+
+builder.Services.AddIdentity<AppUser, IdentityRole>(options =>
+{
+    options.Password.RequireDigit = false;
+})
+                .AddEntityFrameworkStores<IdentityContext>();
+builder.Services.AddAuthentication();
+
+
 
 builder.Services.Configure<ApiBehaviorOptions>(options =>
 {
@@ -39,16 +51,18 @@ var app = builder.Build();
 var context = ServicesExtention.GetService<ApplicationContext>(app);
 var logger = ServicesExtention.GetService<ILogger<ExceptionHandlingMiddlware>>(app);
 var identityContext = ServicesExtention.GetService<IdentityContext>(app);
+var userManger = ServicesExtention.GetService<UserManager<AppUser>>(app);
 try
 {
     await context.Database.MigrateAsync();
     await identityContext.Database.MigrateAsync();
+    await IdentityUserSeeding.UserSeeding(userManger);
     await ApplicationSeed.SeedAsync(context);
 
 }
 catch (Exception ex)
 {
-
+    logger.LogError(ex, "There is an Error Happend");
 }
 
 // Configure the HTTP request pipeline.
